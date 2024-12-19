@@ -18,10 +18,10 @@
 }
 .Nav-links{
     display: flex;
+    margin-left: auto; 
+    gap: 30px;  
 }
-.Nav-links h3{
-    justify-content: space-between;
-    padding-left: 15px;
+.Nav-links h3 {
     cursor: pointer;
 }
 .foodLogo h1{

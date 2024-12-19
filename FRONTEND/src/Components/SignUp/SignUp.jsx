@@ -47,7 +47,9 @@ const SignUp = () => {
     e.preventDefault();
     console.log(formData)
     try {
-        const response = await axios.post("http://localhost:8080/api/signup", formData);
+        const response = await axios.post("http://localhost:8080/api/signup", formData,{
+          withCredentials: true,  
+      });
 
         toast.success("Sign-up successful! Please log in.");
         setFormData({

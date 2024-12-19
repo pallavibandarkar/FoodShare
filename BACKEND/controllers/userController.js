@@ -68,13 +68,18 @@ const loginUser = async(req,res)=>{
 }
 
 const logOut = async(req,res)=>{
-    req.logOut((err)=>{
-        if(err){
-            return next(err)
+    req.logout((err) => {
+        if (err) {
+            return next(err);  // Pass error to next middleware
         }
-    })
-    console.log(req.user)
-    res.send({success:true,message:"Logout Successfully"})
+        console.log("User logged out:", req.user);
+        req.session.destroy((err) => {  // Destroy session
+            if (err) {
+                return next(err);
+            }
+            res.status(200).send({ success: true, message: "Logged out successfully" });
+        });
+    });
 }
 
 module.exports={

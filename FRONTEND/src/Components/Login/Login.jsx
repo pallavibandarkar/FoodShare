@@ -35,14 +35,20 @@ export default function Login(){
             console.log("UserData",userData)
             toast.success("User Logged In successfully!", {
                 position: "top-right",
-                autoClose: 3000,         
+                autoClose: 1000,         
             });
             
             setTimeout(() => {
+                if(userData.role ==="Donor"){
+                    console.log("Donor",userData)
+                    navigate(`/donor/${userData._id}`)
+                }else if(userData.role ==="NGO"){
+                    navigate(`/ngo/${userData._id}`)
+                }else{
+                    navigate("/")
+                }
                 
-                navigate("/")
-                
-            }, 4000);
+            }, 2000);
            
             
             setUser({

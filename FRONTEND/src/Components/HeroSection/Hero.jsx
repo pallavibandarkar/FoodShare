@@ -1,15 +1,17 @@
 import React from "react";
 import "./Hero.css"
+import { useNavigate } from "react-router-dom";
 
 export default function Hero(){
+    const navigate = useNavigate();
     return(
         <>
         <div className="Header">
             <h1>Welcome to FoodShare</h1>
             <p>Coonnecting food donors with NGOs to reduce food waste and feed those in need </p>
             <div className="header-btns">
-                <button>I want to Donate Food</button>
-                <button>I am an NGO</button>
+                <button onClick={()=>navigate("/foodlist/donor")}>I want to Donate Food</button>
+                
             </div>
 
         </div>
@@ -19,10 +21,10 @@ export default function Hero(){
             <div className="work">
                 <div className="dwork">
                     <h1>1.Register</h1>
-                    <p>Sign up as a donar or an NGO to get started</p>
+                    <p>Sign up as a donor or an NGO to get started</p>
                 </div>
                 <div className="dwork">
-                    <h1>2. Post or Browsw</h1>
+                    <h1>2. Post or Browse</h1>
                     <p>Donors post available food, NGOs browse and claim donations</p>
                 </div>
                 <div className="dwork">
